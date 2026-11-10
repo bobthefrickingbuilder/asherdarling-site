@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
   <script>document.documentElement.classList.add('js')</script>
   <script src="site.js?v=3" defer></script>
 </head>
@@ -77,14 +77,30 @@
       </g>
     </svg>
 
-    <!-- Statement -->
-    <section class="statement" aria-label="About">
-      <p class="statement__text" data-fill>A classically trained pianist and composer with a degree in performance and composition from the University of Ottawa, who went on to add pop, rock and alternative to his playing.</p>
+    <!-- Debut EP: Spotify player beside two pictures -->
+    <section class="ep" aria-labelledby="ep-title">
+      <div class="ep__inner">
+        <div class="ep__text" data-reveal>
+          <p class="ep__kicker">Debut EP</p>
+          <h2 class="ep__title" id="ep-title">If I Can Catch It</h2>
+          <p>Produced by Stef Jurewicz.</p>
+          <iframe class="ep__player" title="Spotify player: If I Can Catch It by Asher Darling" src="https://open.spotify.com/embed/album/1AibY3R8aqznHihWEZUwaQ?theme=0" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <a class="arrow-link" href="https://open.spotify.com/album/1AibY3R8aqznHihWEZUwaQ" target="_blank" rel="noopener">Open in Spotify<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+        <!-- TODO: pictures. Replace each placeholder with
+        <img class="ep__photo ep__photo--a" src="images/ep-1.jpg" alt="Describe the photo" loading="lazy" width="1200" height="1600">
+        Keep the ep__photo--a / --b classes for the staggered layout. -->
+        <div class="ep__photos">
+          <div class="ep__photo ep__photo--a ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
+          <div class="ep__photo ep__photo--b ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
+        </div>
+      </div>
     </section>
 
     <!-- Roles -->
     <section class="roles" aria-labelledby="roles-title">
       <h2 class="visually-hidden" id="roles-title">What he does</h2>
+      <p class="roles__intro">A classically trained pianist and composer with a degree in performance and composition from the University of Ottawa, who went on to add pop, rock and alternative to his playing.</p>
       <article class="role" data-reveal>
         <p class="role__n">01</p>
         <h3 class="role__title">Pianist</h3>

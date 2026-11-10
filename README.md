@@ -15,8 +15,8 @@ Hosted on Vercel from this repo's `main` branch (framework preset: **Other**, no
 
 ## Conventions
 
-- Effects come from the `webassets` library: 001 reveal on scroll and 007 text fill on scroll (`site.js`), 008-style clip reveal on the portrait, 106 film grain, 141 cross-document view transitions. All of them switch off under the OS reduced-motion setting.
-- Home has a piano keyboard illustration under the opening, and picture placeholders (portrait, four-picture mosaic, band photo), each with a `TODO` comment showing the `<img>` to swap in.
+- Effects come from the `webassets` library: 001 reveal on scroll and 007 text fill on scroll (`site.js`, currently unused on Home), 008-style clip reveal on the portrait, 106 film grain, 141 cross-document view transitions. All of them switch off under the OS reduced-motion setting.
+- Home has a piano keyboard under the opening, a Debut EP section with the Spotify album player, and picture placeholders (two EP pictures, four-picture mosaic, band photo), each with a `TODO` comment showing the `<img>` to swap in.
 - After any change to `styles.css` or `site.js`, bump `?v=N` on the stylesheet link in every page (including `404.html`).
 - Don't publish a phone number or home address. Email and city are fine.
 
