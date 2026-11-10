@@ -108,4 +108,18 @@
       requestAnimationFrame(loop);
     })();
   }
+
+  // Events: hide shows whose date has passed (local time); show the empty line when none are left.
+  var gigs = document.querySelector('.gigs');
+  if (gigs) {
+    var now = new Date(), today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+    gigs.querySelectorAll('.gig time[datetime]').forEach(function (t) {
+      if (t.getAttribute('datetime') < today) t.closest('.gig').hidden = true;
+    });
+    if (!gigs.querySelector('.gig:not([hidden])')) {
+      gigs.hidden = true;
+      var empty = document.querySelector('.gigs__empty');
+      if (empty) empty.hidden = false;
+    }
+  }
 })();

@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap">
-  <link rel="stylesheet" href="styles.css?v=18">
+  <link rel="stylesheet" href="styles.css?v=20">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="site.js?v=5" defer></script>
+  <script src="site.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -34,17 +34,48 @@
 
     <section class="section section--single">
       <div class="section__body">
-        <!-- TODO: events. Replace the placeholder rows with real dates. One <li> per show; delete the ticket link if there isn't one.
-             When there are no upcoming shows, delete the list and keep the .gigs__empty paragraph.
-             Row markup (goes above the .gigs__empty paragraph):
+        <!-- One <li> per show, in date order. site.js hides shows once their date has passed and shows the
+             .gigs__empty line when none are left. Add a ticket link inside the <li> when there is one:
+             <a class="gig__tickets" href="https://...">Tickets<span class="visually-hidden"> for this show</span></a> -->
         <ul class="gigs">
           <li class="gig">
-            <time class="gig__date" datetime="2026-12-31">Dec 31, 2026</time>
-            <div class="gig__info"><span class="gig__venue">Venue</span><span class="gig__meta">Ottawa · The Start</span></div>
-            <a class="gig__tickets" href="https://...">Tickets<span class="visually-hidden"> for this show</span></a>
+            <time class="gig__date" datetime="2026-11-06">Nov 6, 2026</time>
+            <div class="gig__info"><span class="gig__venue">Avant Garde Bar</span><span class="gig__meta">Asher Darling &amp; The Tactics · Piano rock</span></div>
           </li>
-        </ul> -->
-        <p class="gigs__empty">New dates are posted on <a href="https://www.instagram.com/asherdarlingmusic/" target="_blank" rel="noopener">Instagram</a>.</p>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-07">Nov 7, 2026</time>
+            <div class="gig__info"><span class="gig__venue">Private Event</span><span class="gig__meta">The Start · 80s British dance</span></div>
+          </li>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-08">Nov 8, 2026</time>
+            <div class="gig__info"><span class="gig__venue">Avant Garde Bar</span><span class="gig__meta">Blank Notion · Alt rock</span></div>
+          </li>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-14">Nov 14, 2026</time>
+            <div class="gig__info"><span class="gig__venue">Private Event</span><span class="gig__meta">The Start · 80s British dance</span></div>
+          </li>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-20">Nov 20, 2026</time>
+            <div class="gig__info"><span class="gig__venue">H&amp;C Barrhaven</span><span class="gig__meta">The Start · 80s British dance</span></div>
+          </li>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-21">Nov 21, 2026</time>
+            <div class="gig__info"><span class="gig__venue">H&amp;C Barrhaven</span><span class="gig__meta">The Start · 80s British dance</span></div>
+          </li>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-23">Nov 23, 2026</time>
+            <div class="gig__info"><span class="gig__venue">Live! On Elgin</span><span class="gig__meta">Capital Syndicate · Hip hop</span></div>
+          </li>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-27">Nov 27, 2026</time>
+            <div class="gig__info"><span class="gig__venue">House of Targ</span><span class="gig__meta">The Start · 80s British dance</span></div>
+          </li>
+          <li class="gig">
+            <time class="gig__date" datetime="2026-11-28">Nov 28, 2026</time>
+            <div class="gig__info"><span class="gig__venue">Private Event</span><span class="gig__meta">The Start · 80s British dance</span></div>
+          </li>
+        </ul>
+        <p class="gigs__empty" hidden>New dates are posted on <a href="https://www.instagram.com/asherdarlingmusic/" target="_blank" rel="noopener">Instagram</a>.</p>
       </div>
     </section>
   </main>
