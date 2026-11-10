@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=21">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="site.js?v=6" defer></script>
+  <script src="site.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -29,19 +29,37 @@
 
   <main id="main">
     <header class="page-head">
+      <p class="page-head__kicker">Frames 01–05</p>
       <h1 class="page-head__title">Pictures</h1>
     </header>
 
     <section class="section section--single">
       <div class="section__body section__body--wide">
-        <!-- Add more pictures as <li><img ...></li>, files in images/. Photo credits will go in a separate section later. -->
-        <ul class="gallery">
-          <li><img src="images/asher-darling-live.jpg" alt="Asher Darling singing at the keyboard in a white jacket" loading="lazy" width="1002" height="1060" data-reveal></li>
-          <li><img src="images/ep-1.jpg" alt="Asher Darling reading a record sleeve beside a lamp in a wood-panelled room" loading="lazy" width="1200" height="1200" data-reveal></li>
-          <li><img src="images/ep-2.jpg" alt="Asher Darling standing by a brick fireplace in a living room" loading="lazy" width="1200" height="1200" data-reveal></li>
-          <li><img src="images/ep-3.jpg" alt="Asher Darling resting his head on a dining table" loading="lazy" width="1200" height="1200" data-reveal></li>
-          <li><img src="images/ep-4.jpg" alt="Asher Darling standing in the snow outside a house" loading="lazy" width="1200" height="1200" data-reveal></li>
-        </ul>
+        <!-- Pictures: an offset sheet of numbered frames. Each frame opens in the lightbox (site.js).
+             The desktop layout places frames 1 to 5 by hand in styles.css (.frame--N); add a sixth with its own placement.
+             Photo credits will go in a separate section later. -->
+        <ol class="frames">
+          <li class="frame frame--1" data-reveal>
+            <a class="frame__open" href="images/asher-darling-live.jpg" data-cursor="View" data-caption="Live"><img src="images/asher-darling-live.jpg" alt="Asher Darling singing at the keyboard in a white jacket" loading="eager" width="1002" height="1060"></a>
+            <p class="frame__label" aria-hidden="true"><span class="frame__n">01</span><span class="frame__rule"></span><span>Live</span></p>
+          </li>
+          <li class="frame frame--2" data-reveal>
+            <a class="frame__open" href="images/ep-1.jpg" data-cursor="View" data-caption="Reading room"><img src="images/ep-1.jpg" alt="Asher Darling reading a record sleeve beside a lamp in a wood-panelled room" loading="lazy" width="1200" height="1200"></a>
+            <p class="frame__label" aria-hidden="true"><span class="frame__n">02</span><span class="frame__rule"></span><span>Reading room</span></p>
+          </li>
+          <li class="frame frame--3" data-reveal>
+            <a class="frame__open" href="images/ep-2.jpg" data-cursor="View" data-caption="Fireplace"><img src="images/ep-2.jpg" alt="Asher Darling standing by a brick fireplace in a living room" loading="lazy" width="1200" height="1200"></a>
+            <p class="frame__label" aria-hidden="true"><span class="frame__n">03</span><span class="frame__rule"></span><span>Fireplace</span></p>
+          </li>
+          <li class="frame frame--4" data-reveal>
+            <a class="frame__open" href="images/ep-3.jpg" data-cursor="View" data-caption="Dining table"><img src="images/ep-3.jpg" alt="Asher Darling resting his head on a dining table" loading="lazy" width="1200" height="1200"></a>
+            <p class="frame__label" aria-hidden="true"><span class="frame__n">04</span><span class="frame__rule"></span><span>Dining table</span></p>
+          </li>
+          <li class="frame frame--5" data-reveal>
+            <a class="frame__open" href="images/ep-4.jpg" data-cursor="View" data-caption="Snow"><img src="images/ep-4.jpg" alt="Asher Darling standing in the snow outside a house" loading="lazy" width="1200" height="1200"></a>
+            <p class="frame__label" aria-hidden="true"><span class="frame__n">05</span><span class="frame__rule"></span><span>Snow</span></p>
+          </li>
+        </ol>
         <p class="gallery__more">More pictures are posted on <a href="https://www.instagram.com/asherdarlingmusic/" target="_blank" rel="noopener">Instagram<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
       </div>
     </section>

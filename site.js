@@ -109,17 +109,55 @@
     })();
   }
 
-  // Events: hide shows whose date has passed (local time); show the empty line when none are left.
-  var gigs = document.querySelector('.gigs');
-  if (gigs) {
-    var now = new Date(), today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
-    gigs.querySelectorAll('.gig time[datetime]').forEach(function (t) {
-      if (t.getAttribute('datetime') < today) t.closest('.gig').hidden = true;
+
+  // Pictures lightbox: frames open in a modal <dialog>; arrows, swipe and Esc work. Without JS the links open the image file.
+  var opens = Array.prototype.slice.call(document.querySelectorAll('.frame__open'));
+  if (opens.length && window.HTMLDialogElement) {
+    var lb = document.createElement('dialog');
+    lb.className = 'lb'; lb.setAttribute('aria-label', 'Picture viewer');
+    lb.innerHTML = '<div class="lb__top"><span class="lb__count" aria-live="polite"></span><button type="button" class="lb__close">Close</button></div>' +
+      '<figure class="lb__stage"><img alt=""></figure>' +
+      '<div class="lb__bar"><span class="lb__cap"></span><span class="lb__nav"><button type="button" class="lb__prev">\u2190 Prev</button><button type="button" class="lb__next">Next \u2192</button></span></div>';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.lb__count'), lbCap = lb.querySelector('.lb__cap'), cur = 0;
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var show = function (i) {
+      cur = (i + opens.length) % opens.length;
+      var a = opens[cur], im = a.querySelector('img');
+      lbImg.classList.remove('swap'); void lbImg.offsetWidth; lbImg.classList.add('swap');
+      lbImg.src = a.getAttribute('href'); lbImg.alt = im.alt;
+      lbImg.width = im.width; lbImg.height = im.height;
+      lbCount.textContent = pad(cur + 1) + ' / ' + pad(opens.length);
+      lbCap.textContent = a.getAttribute('data-caption') || '';
+    };
+    opens.forEach(function (a, i) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault(); show(i);
+        document.documentElement.classList.add('lb-open');
+        lb.showModal(); lb.querySelector('.lb__next').focus();
+      });
     });
-    if (!gigs.querySelector('.gig:not([hidden])')) {
-      gigs.hidden = true;
-      var empty = document.querySelector('.gigs__empty');
-      if (empty) empty.hidden = false;
-    }
+    // Cleanup runs from every close path (button, backdrop, Esc) rather than relying on the close event alone.
+    var shut = function () {
+      if (lb.open) lb.close();
+      document.documentElement.classList.remove('lb-open');
+      opens[cur].focus();
+    };
+    lb.addEventListener('cancel', function (e) { e.preventDefault(); shut(); });
+    lb.addEventListener('close', function () { if (document.documentElement.classList.contains('lb-open')) shut(); });
+    lb.querySelector('.lb__close').addEventListener('click', shut);
+    lb.querySelector('.lb__prev').addEventListener('click', function () { show(cur - 1); });
+    lb.querySelector('.lb__next').addEventListener('click', function () { show(cur + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb__stage')) shut(); });
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+    });
+    var sx = null;
+    lb.addEventListener('pointerdown', function (e) { sx = e.clientX; });
+    lb.addEventListener('pointerup', function (e) {
+      if (sx !== null && e.pointerType !== 'mouse' && Math.abs(e.clientX - sx) > 50) show(cur + (e.clientX < sx ? 1 : -1));
+      sx = null;
+    });
   }
 })();
