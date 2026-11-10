@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
   <script>document.documentElement.classList.add('js')</script>
   <script src="site.js?v=3" defer></script>
 </head>
@@ -41,7 +41,6 @@
 
       <figure class="opening__photo">
         <img src="images/asher-darling-live.jpg" alt="Asher Darling singing at the keyboard in a white jacket" width="1002" height="1060" fetchpriority="high">
-        <figcaption class="photo-credit">Photo: <a href="https://www.instagram.com/meatnerd/" target="_blank" rel="noopener">@meatnerd<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
       </figure>
     </header>
 
@@ -87,12 +86,15 @@
           <iframe class="ep__player" title="Spotify player: If I Can Catch It by Asher Darling" src="https://open.spotify.com/embed/album/1AibY3R8aqznHihWEZUwaQ?theme=0" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
           <a class="arrow-link" href="https://open.spotify.com/album/1AibY3R8aqznHihWEZUwaQ" target="_blank" rel="noopener">Open in Spotify<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
-        <!-- TODO: pictures. Replace each placeholder with
-        <img class="ep__photo ep__photo--a" src="images/ep-1.jpg" alt="Describe the photo" loading="lazy" width="1200" height="1600">
-        Keep the ep__photo--a / --b classes for the staggered layout. -->
         <div class="ep__photos">
-          <div class="ep__photo ep__photo--a ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
-          <div class="ep__photo ep__photo--b ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
+          <div class="ep__col">
+            <img class="ep__photo" src="images/ep-1.jpg" alt="Asher Darling reading a record sleeve beside a lamp in a wood-panelled room" loading="lazy" width="1200" height="1200" data-reveal>
+            <img class="ep__photo" src="images/ep-3.jpg" alt="Asher Darling resting his head on a dining table" loading="lazy" width="1200" height="1200" data-reveal>
+          </div>
+          <div class="ep__col ep__col--offset">
+            <img class="ep__photo" src="images/ep-2.jpg" alt="Asher Darling standing by a brick fireplace in a living room" loading="lazy" width="1200" height="1200" data-reveal>
+            <img class="ep__photo" src="images/ep-4.jpg" alt="Asher Darling standing in the snow outside a house" loading="lazy" width="1200" height="1200" data-reveal>
+          </div>
         </div>
       </div>
     </section>

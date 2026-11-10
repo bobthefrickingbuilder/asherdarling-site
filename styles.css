@@ -271,9 +271,9 @@ body::after {
 .ep__title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(2.75rem, 6vw, 5rem); line-height: 0.95; letter-spacing: -0.02em; color: var(--cream); }
 .ep__player { display: block; width: 100%; height: 352px; border: 0; border-radius: 12px; margin-top: 0.75rem; background: var(--panel); }
 .ep__photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(0.75rem, 2vw, 1.5rem); align-items: start; }
-.ep__photo { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; }
-.ep__photo.ph { display: grid; }
-.ep__photo--b { margin-top: clamp(3rem, 10vw, 7rem); }
+.ep__col { display: grid; gap: clamp(0.75rem, 2vw, 1.5rem); }
+.ep__col--offset { margin-top: clamp(2.5rem, 8vw, 6rem); }
+.ep__photo { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 4px; background: var(--panel); }
 @media (min-width: 900px) { .ep__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
 
 /* Roles */
@@ -314,11 +314,6 @@ body::after {
 .band__photo.ph, .opening__photo.ph { display: grid; }
 figure.opening__photo { position: relative; overflow: hidden; background: var(--panel); }
 figure.opening__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; display: block; }
-.photo-credit {
-  position: absolute; right: 0.75rem; bottom: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 3px;
-  background: rgba(0, 0, 0, 0.6); color: #ffffff; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em;
-}
-.photo-credit a { color: inherit; }
 .band__photo.ph { background: var(--bg); }
 .band__text { display: grid; gap: 1.25rem; align-content: center; padding: clamp(1rem, 4vw, 3.5rem) clamp(0.5rem, 3vw, 3rem); }
 .band__kicker { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--leaf); }
@@ -373,7 +368,6 @@ figure.opening__photo img { position: absolute; inset: 0; width: 100%; height: 1
 .gallery figure { margin: 0; display: grid; gap: 0.5rem; }
 .gallery img { display: block; width: 100%; height: auto; border-radius: 2px; }
 .gallery figcaption { font-size: 0.8125rem; color: var(--text-muted); }
-.gallery .credit { font-style: italic; }
 
 .section.section--single { grid-template-columns: minmax(0, 1fr); }
 .section--single .section__body { max-width: 48rem; }
