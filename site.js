@@ -115,20 +115,18 @@
   if (opens.length && window.HTMLDialogElement) {
     var lb = document.createElement('dialog');
     lb.className = 'lb'; lb.setAttribute('aria-label', 'Picture viewer');
-    lb.innerHTML = '<div class="lb__top"><span class="lb__count" aria-live="polite"></span><button type="button" class="lb__close">Close</button></div>' +
+    lb.innerHTML = '<div class="lb__top"><span class="lb__count visually-hidden" aria-live="polite"></span><button type="button" class="lb__close">Close</button></div>' +
       '<figure class="lb__stage"><img alt=""></figure>' +
-      '<div class="lb__bar"><span class="lb__cap"></span><span class="lb__nav"><button type="button" class="lb__prev">\u2190 Prev</button><button type="button" class="lb__next">Next \u2192</button></span></div>';
+      '<div class="lb__bar"><span class="lb__nav"><button type="button" class="lb__prev">\u2190 Prev</button><button type="button" class="lb__next">Next \u2192</button></span></div>';
     document.body.appendChild(lb);
-    var lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.lb__count'), lbCap = lb.querySelector('.lb__cap'), cur = 0;
-    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.lb__count'), cur = 0;
     var show = function (i) {
       cur = (i + opens.length) % opens.length;
       var a = opens[cur], im = a.querySelector('img');
       lbImg.classList.remove('swap'); void lbImg.offsetWidth; lbImg.classList.add('swap');
       lbImg.src = a.getAttribute('href'); lbImg.alt = im.alt;
       lbImg.width = im.width; lbImg.height = im.height;
-      lbCount.textContent = pad(cur + 1) + ' / ' + pad(opens.length);
-      lbCap.textContent = a.getAttribute('data-caption') || '';
+      lbCount.textContent = 'Picture ' + (cur + 1) + ' of ' + opens.length;
     };
     opens.forEach(function (a, i) {
       a.addEventListener('click', function (e) {

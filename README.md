@@ -26,7 +26,7 @@ Each is marked with a `TODO` comment in the page.
 
 - **Photo credits:** removed from the site for now; a separate credits section is planned. Photographers so far: @meatnerd (home portrait, `images/asher-darling-live.jpg`), @jpep_xcreative (EP pictures, `images/ep-1.jpg` to `ep-4.jpg`).
 - **Listen:** Spotify embed in `listen.html`. The page is hidden from the nav until then (restore the commented-out `<li>` in every page's nav, including `404.html`).
-- **Pictures:** `pictures.html` is an offset sheet of numbered frames (every photo used on the site) that open in a lightbox. To add one, copy a `<li class="frame">` and give it a desktop placement in styles.css (`.frame--N`).
+- **Pictures:** `pictures.html` is a tight mosaic of every photo used on the site; each opens in a lightbox. To add one, copy a `<li class="frame">` and give it a desktop placement in styles.css (`.frame--N`).
 - **Events:** dates in `events.html`, one `<li class="gig">` per show. All listed shows display; remove past ones by hand. With no shows, delete the list and unhide the Instagram line. November 2026 dates added from the gig poster.
 - **Contact:** public email in `contact.html`. The message form is hidden (`hidden` on its section) until it has a FormSubmit address; the first submission sends an activation email that must be confirmed.
 - **Domain:** add `sitemap.xml` and `robots.txt` once the production domain is known.
