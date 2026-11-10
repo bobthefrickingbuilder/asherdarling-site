@@ -10,14 +10,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="site.js?v=1" defer></script>
+  <script src="site.js?v=2" defer></script>
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <nav class="site-nav" aria-label="Main">
+  <nav class="site-nav site-nav--solid" aria-label="Main">
     <a class="site-nav__home" href="index.html">Asher Darling</a>
     <ul class="site-nav__list">
       <!-- Listen is hidden from the nav until it has content. Restore: <li><a href="listen.html">Listen</a></li> -->
@@ -27,137 +27,98 @@
     </ul>
   </nav>
 
-  <header class="hero">
-    <div class="hero__inner">
-      <div class="hero__text">
-        <p class="label hero__kicker">Ottawa · Pianist · Composer · <span class="nowrap">Singer-songwriter</span></p>
-        <h1 class="hero__name"><span class="w" style="--i:0">Asher</span><br><span class="w" style="--i:1">Darling</span></h1>
-      </div>
-      <!-- TODO: headshot. Replace the placeholder with
-      <img class="hero__photo" src="images/asher-darling.jpg" alt="Asher Darling at the piano" width="1200" height="1500">
+  <main id="main">
+    <!-- Opening: portrait on one side, name and roles on the other -->
+    <header class="opening">
+      <!-- TODO: portrait. Replace the placeholder with
+      <img class="opening__photo" src="images/asher-darling.jpg" alt="Asher Darling at the piano" width="1200" height="1500">
       -->
-      <div class="placeholder placeholder--photo hero__photo" style="--ratio:4/5" role="img" aria-label="Portrait placeholder">
-        <span class="label">Portrait</span>
+      <div class="opening__photo ph" role="img" aria-label="Portrait placeholder"><span>Portrait</span></div>
+
+      <div class="opening__text">
+        <h1 class="opening__name">Asher<br>Darling</h1>
+        <ol class="roles-list">
+          <li><span class="roles-list__n">01</span>Pianist</li>
+          <li><span class="roles-list__n">02</span>Composer</li>
+          <li><span class="roles-list__n">03</span>Singer-songwriter</li>
+        </ol>
+        <p class="opening__place">Ottawa, Canada</p>
+        <div class="opening__actions">
+          <a class="btn btn--solid" href="contact.html">Bookings</a>
+          <a class="btn" href="events.html">Events</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Styles marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Classical</span><span>Pop</span><span>Rock</span><span>Alternative</span><span>Piano</span><span>Keyboards</span><span>Songs</span>
+        <span>Classical</span><span>Pop</span><span>Rock</span><span>Alternative</span><span>Piano</span><span>Keyboards</span><span>Songs</span>
       </div>
     </div>
 
-    <svg class="keyboard" viewBox="0 0 560 150" preserveAspectRatio="none" role="img" aria-label="Illustration of a two-octave piano keyboard">
-      <g class="keys-white">
-        <rect x="0"   y="0" width="40" height="150"/>
-        <rect x="40"  y="0" width="40" height="150"/>
-        <rect x="80"  y="0" width="40" height="150"/>
-        <rect x="120" y="0" width="40" height="150"/>
-        <rect x="160" y="0" width="40" height="150"/>
-        <rect x="200" y="0" width="40" height="150"/>
-        <rect x="240" y="0" width="40" height="150"/>
-        <rect x="280" y="0" width="40" height="150" class="key--amber"/>
-        <rect x="320" y="0" width="40" height="150"/>
-        <rect x="360" y="0" width="40" height="150"/>
-        <rect x="400" y="0" width="40" height="150"/>
-        <rect x="440" y="0" width="40" height="150"/>
-        <rect x="480" y="0" width="40" height="150"/>
-        <rect x="520" y="0" width="40" height="150"/>
-      </g>
-      <g class="keys-black">
-        <rect x="27"  y="0" width="26" height="92"/>
-        <rect x="67"  y="0" width="26" height="92"/>
-        <rect x="147" y="0" width="26" height="92" class="key--amber"/>
-        <rect x="187" y="0" width="26" height="92"/>
-        <rect x="227" y="0" width="26" height="92"/>
-        <rect x="307" y="0" width="26" height="92"/>
-        <rect x="347" y="0" width="26" height="92"/>
-        <rect x="427" y="0" width="26" height="92"/>
-        <rect x="467" y="0" width="26" height="92"/>
-        <rect x="507" y="0" width="26" height="92"/>
-      </g>
-    </svg>
-  </header>
+    <!-- Statement -->
+    <section class="statement" aria-label="About">
+      <p class="statement__text" data-fill>A classically trained pianist and composer with a degree in performance and composition from the University of Ottawa, who went on to add pop, rock and alternative to his playing.</p>
+    </section>
 
-  <main id="main">
-    <section class="section" aria-labelledby="about-title">
-      <h2 class="label section__label" id="about-title">About</h2>
-      <div class="section__body">
-        <p class="lede">Asher Darling is a pianist, composer and singer-songwriter based in Ottawa.</p>
-        <p>He is a pianist and composer with a classical background and a passion for contemporary styles. He holds a degree in performance and composition from the University of Ottawa, and after graduating added pop, rock and alternative to his playing.</p>
-        <dl class="glance">
-          <div><dt>Plays</dt><dd>Piano and keyboards</dd></div>
-          <div><dt>Writes</dt><dd>Compositions and songs</dd></div>
-          <div><dt>Training</dt><dd>Performance and composition, University of Ottawa</dd></div>
-          <div><dt>Styles</dt><dd>Classical, pop, rock, alternative</dd></div>
-        </dl>
+    <!-- Roles -->
+    <section class="roles" aria-labelledby="roles-title">
+      <h2 class="visually-hidden" id="roles-title">What he does</h2>
+      <article class="role" data-reveal>
+        <p class="role__n">01</p>
+        <h3 class="role__title">Pianist</h3>
+        <p>Piano and keyboards, from the classical repertoire to five decades of British pop and rock.</p>
+      </article>
+      <article class="role" data-reveal>
+        <p class="role__n">02</p>
+        <h3 class="role__title">Composer</h3>
+        <p>Trained in composition at the University of Ottawa, writing for the piano and beyond.</p>
+      </article>
+      <article class="role" data-reveal>
+        <p class="role__n">03</p>
+        <h3 class="role__title">Singer-songwriter</h3>
+        <p>Writes and performs his own songs.</p>
+      </article>
+    </section>
+
+    <!-- Pictures mosaic -->
+    <section class="mosaic" aria-labelledby="mosaic-title">
+      <div class="mosaic__head">
+        <h2 class="mosaic__title" id="mosaic-title">Pictures</h2>
+        <a class="arrow-link" href="pictures.html">See all<span aria-hidden="true"> →</span></a>
+      </div>
+      <!-- TODO: pictures. Replace each placeholder with
+      <a class="mosaic__item mosaic__item--tall" href="pictures.html"><img src="images/home-1.jpg" alt="Describe the photo" loading="lazy" width="1200" height="1600"></a>
+      Keep the mosaic__item--tall / --wide classes so the grid shape stays the same. -->
+      <div class="mosaic__grid">
+        <div class="mosaic__item mosaic__item--tall ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
+        <div class="mosaic__item ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
+        <div class="mosaic__item ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
+        <div class="mosaic__item mosaic__item--wide ph" data-reveal role="img" aria-label="Picture placeholder"><span>Picture</span></div>
       </div>
     </section>
 
-    <!-- TODO: performance photo. Replace the placeholder with
-    <img class="feature__img" src="images/performance.jpg" alt="Describe the photo" loading="lazy" width="2400" height="1350">
-    -->
-    <figure class="feature" data-reveal>
-      <div class="placeholder placeholder--photo" style="--ratio:16/9" role="img" aria-label="Performance photo placeholder">
-        <span class="label">Performance</span>
-      </div>
-    </figure>
-
-    <section class="section" aria-labelledby="performing-title">
-      <h2 class="label section__label" id="performing-title">Performing</h2>
-      <div class="section__body">
-        <article class="card">
-          <!-- TODO: band photo. Replace the placeholder with
-          <img class="card__img" src="images/the-start.jpg" alt="The Start on stage" loading="lazy" width="1500" height="1000">
-          -->
-          <div class="placeholder placeholder--photo card__img" style="--ratio:3/2" role="img" aria-label="Band photo placeholder">
-            <span class="label">The Start, live</span>
-          </div>
-          <p class="label card__label">Keyboards</p>
-          <h3 class="card__title">The Start</h3>
-          <p>A five-piece Ottawa cover band founded in 2009, playing five decades of British music, “80s and beyond”.</p>
-          <ul class="lineup">
-            <li><span>Asher Darling</span><span class="lineup__role">Keyboards</span></li>
-            <li><span>Graeme Weeks</span><span class="lineup__role">Vocals</span></li>
-            <li><span>David Little</span><span class="lineup__role">Lead guitar</span></li>
-            <li><span>Nathan Hoedeman</span><span class="lineup__role">Percussion</span></li>
-            <li><span>Martin Newman</span><span class="lineup__role">Bass</span></li>
-          </ul>
-          <a class="link-arrow" href="https://wearethestart.ca/" target="_blank" rel="noopener">wearethestart.ca<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--single" aria-labelledby="pictures-title">
-      <div class="strip-head">
-        <h2 class="label section__label" id="pictures-title">Pictures</h2>
-        <a class="link-arrow" href="pictures.html">All pictures<span aria-hidden="true"> →</span></a>
-      </div>
-      <!-- TODO: pictures. Replace each placeholder <li> with
-      <li><a href="pictures.html"><img src="images/thumb-1.jpg" alt="Describe the photo" loading="lazy" width="760" height="950"></a></li>
+    <!-- The Start -->
+    <section class="band" aria-labelledby="band-title">
+      <!-- TODO: band photo. Replace the placeholder with
+      <img class="band__photo" src="images/the-start.jpg" alt="The Start on stage" loading="lazy" width="1800" height="1200">
       -->
-      <ul class="strip">
-        <li class="placeholder placeholder--photo" style="--ratio:4/5" data-reveal role="img" aria-label="Picture placeholder"><span class="label">Picture</span></li>
-        <li class="placeholder placeholder--photo" style="--ratio:4/5" data-reveal role="img" aria-label="Picture placeholder"><span class="label">Picture</span></li>
-        <li class="placeholder placeholder--photo" style="--ratio:4/5" data-reveal role="img" aria-label="Picture placeholder"><span class="label">Picture</span></li>
-      </ul>
-    </section>
-
-    <section class="section" aria-labelledby="events-title">
-      <h2 class="label section__label" id="events-title">Events</h2>
-      <div class="section__body">
-        <p>Upcoming shows, solo and with The Start, are listed on the <a href="events.html">events page</a>.</p>
+      <div class="band__photo ph" data-reveal role="img" aria-label="Band photo placeholder"><span>The Start, live</span></div>
+      <div class="band__text" data-reveal>
+        <p class="band__kicker">On keyboards with</p>
+        <h2 class="band__title" id="band-title">The Start</h2>
+        <p>A five-piece Ottawa cover band founded in 2009, playing five decades of British music, “80s and beyond”.</p>
+        <p class="band__lineup">Asher Darling, keyboards · Graeme Weeks, vocals · David Little, lead guitar · Nathan Hoedeman, percussion · Martin Newman, bass</p>
+        <a class="arrow-link" href="https://wearethestart.ca/" target="_blank" rel="noopener">wearethestart.ca<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="follow-title">
-      <h2 class="label section__label" id="follow-title">Follow</h2>
-      <div class="section__body">
-        <ul class="follow">
-          <li>
-            <a class="link-arrow" href="https://www.instagram.com/asherdarlingmusic/" target="_blank" rel="noopener">
-              <span class="follow__name">Instagram</span>
-              <span class="follow__handle">@asherdarlingmusic<span aria-hidden="true"> ↗</span></span>
-              <span class="visually-hidden"> (opens in a new tab)</span>
-            </a>
-          </li>
-        </ul>
-        <p>For bookings and other inquiries, use the <a href="contact.html">contact page</a>.</p>
-      </div>
+    <!-- Closing call to action -->
+    <section class="closing" aria-label="Bookings">
+      <a class="closing__link" href="contact.html">Book Asher<span class="closing__arrow" aria-hidden="true">→</span></a>
+      <p class="closing__social">Follow on <a href="https://www.instagram.com/asherdarlingmusic/" target="_blank" rel="noopener">Instagram @asherdarlingmusic<span class="visually-hidden"> (opens in a new tab)</span></a></p>
     </section>
   </main>
 

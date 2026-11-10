@@ -15,8 +15,8 @@ Hosted on Vercel from this repo's `main` branch (framework preset: **Other**, no
 
 ## Conventions
 
-- Effects come from the `webassets` library: 001 reveal on scroll (`site.js`), 049 blur-in name, 106 film grain, 141 cross-document view transitions, plus a hover dip on the piano keys. All of them switch off under the OS reduced-motion setting.
-- Home has picture placeholders (portrait, performance, band, three-picture strip), each with a `TODO` comment showing the `<img>` to swap in.
+- Effects come from the `webassets` library: 001 reveal on scroll and 007 text fill on scroll (`site.js`), 008-style clip reveal on the portrait, 011 marquee, 106 film grain, 141 cross-document view transitions. All of them switch off under the OS reduced-motion setting.
+- Home has picture placeholders (portrait, four-picture mosaic, band photo), each with a `TODO` comment showing the `<img>` to swap in.
 - After any change to `styles.css` or `site.js`, bump `?v=N` on the stylesheet link in every page (including `404.html`).
 - Don't publish a phone number or home address. Email and city are fine.
 
@@ -24,7 +24,7 @@ Hosted on Vercel from this repo's `main` branch (framework preset: **Other**, no
 
 Each is marked with a `TODO` comment in the page.
 
-- **Headshot:** hero on `index.html`.
+- **Portrait:** opening section on `index.html`.
 - **Listen:** Spotify embed in `listen.html`. The page is hidden from the nav until then (restore the commented-out `<li>` in every page's nav, including `404.html`).
 - **Pictures:** images and photographer credits in `pictures.html`, files in `images/`. Shows an Instagram line until then.
 - **Events:** real dates in `events.html`. It shows an Instagram line until there are dates.
