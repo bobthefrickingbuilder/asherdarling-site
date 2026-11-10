@@ -56,4 +56,56 @@
     window.addEventListener('resize', onScroll);
     update();
   }
+  // Single-track Spotify players: only one plays at a time.
+  var slots = document.querySelectorAll('[data-spotify]');
+  if (slots.length) {
+    var players = [];
+    window.onSpotifyIframeApiReady = function (IFrameAPI) {
+      slots.forEach(function (el) {
+        IFrameAPI.createController(el, { uri: el.getAttribute('data-spotify'), width: '100%', height: 80 }, function (ctrl) {
+          players.push(ctrl);
+          var playing = false;
+          ctrl.addListener('playback_update', function (e) {
+            var nowPlaying = !!(e && e.data && e.data.isPaused === false);
+            if (nowPlaying && !playing) players.forEach(function (o) { if (o !== ctrl) o.pause(); });
+            playing = nowPlaying;
+          });
+        });
+      });
+    };
+  }
+  // Label cursor (webassets 056): an amber dot that rings links and opens into a label on a few.
+  if (window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('a[href="contact.html"], a[href="/contact.html"], .closing__link').forEach(function (a) {
+      if (!a.closest('.site-nav, .footer')) a.setAttribute('data-cursor', 'Book');
+    });
+    document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+      if (!a.hasAttribute('data-cursor')) a.setAttribute('data-cursor', 'Open \u2197');
+    });
+    var c = document.createElement('div');
+    c.className = 'lc'; c.setAttribute('aria-hidden', 'true');
+    var label = document.createElement('span'); c.appendChild(label);
+    document.body.appendChild(c);
+    document.documentElement.classList.add('has-cursor');
+    var x = -100, y = -100, tx = -100, ty = -100, ease = reduced ? 1 : 0.22;
+    addEventListener('pointermove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      if (x < 0) { x = tx; y = ty; }
+      var t = e.target;
+      if (t.tagName === 'IFRAME') { c.classList.remove('on'); return; }
+      c.classList.add('on');
+      var host = t.closest('[data-cursor]');
+      var link = t.closest('a, button, label, summary');
+      c.classList.toggle('label', !!host);
+      c.classList.toggle('link', !host && !!link);
+      if (host) label.textContent = host.getAttribute('data-cursor');
+    });
+    document.addEventListener('pointerleave', function () { c.classList.remove('on'); });
+    window.addEventListener('blur', function () { c.classList.remove('on'); });
+    (function loop() {
+      x += (tx - x) * ease; y += (ty - y) * ease;
+      c.style.left = x + 'px'; c.style.top = y + 'px';
+      requestAnimationFrame(loop);
+    })();
+  }
 })();

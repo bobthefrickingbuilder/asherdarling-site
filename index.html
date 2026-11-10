@@ -10,9 +10,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=13">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="site.js?v=3" defer></script>
+  <script src="site.js?v=5" defer></script>
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -76,25 +77,30 @@
       </g>
     </svg>
 
-    <!-- Debut EP: Spotify player beside two pictures -->
+    <!-- Debut EP: a loose pile of prints and single-track players. site.js pauses the other players when one starts. -->
     <section class="ep" aria-labelledby="ep-title">
       <div class="ep__inner">
         <div class="ep__text" data-reveal>
           <p class="ep__kicker">Debut EP</p>
           <h2 class="ep__title" id="ep-title">If I Can Catch It</h2>
           <p>Produced by Stef Jurewicz.</p>
-          <iframe class="ep__player" title="Spotify player: If I Can Catch It by Asher Darling" src="https://open.spotify.com/embed/album/1AibY3R8aqznHihWEZUwaQ?theme=0" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-          <a class="arrow-link" href="https://open.spotify.com/album/1AibY3R8aqznHihWEZUwaQ" target="_blank" rel="noopener">Open in Spotify<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a class="arrow-link" href="https://open.spotify.com/album/1AibY3R8aqznHihWEZUwaQ" target="_blank" rel="noopener">Full EP on Spotify<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
-        <div class="ep__photos">
-          <div class="ep__col">
-            <img class="ep__photo" src="images/ep-1.jpg" alt="Asher Darling reading a record sleeve beside a lamp in a wood-panelled room" loading="lazy" width="1200" height="1200" data-reveal>
-            <img class="ep__photo" src="images/ep-3.jpg" alt="Asher Darling resting his head on a dining table" loading="lazy" width="1200" height="1200" data-reveal>
-          </div>
-          <div class="ep__col ep__col--offset">
-            <img class="ep__photo" src="images/ep-2.jpg" alt="Asher Darling standing by a brick fireplace in a living room" loading="lazy" width="1200" height="1200" data-reveal>
-            <img class="ep__photo" src="images/ep-4.jpg" alt="Asher Darling standing in the snow outside a house" loading="lazy" width="1200" height="1200" data-reveal>
-          </div>
+        <div class="ep__track ep__track--a" data-reveal>
+          <p class="ep__track-n">Track 01</p>
+          <div class="ep__embed" data-spotify="spotify:track:5keok5ZVyY2Rv8VLy2S7qJ"><a href="https://open.spotify.com/track/5keok5ZVyY2Rv8VLy2S7qJ" target="_blank" rel="noopener">Play Effigy on Spotify<span class="visually-hidden"> (opens in a new tab)</span></a></div>
+        </div>
+        <figure class="ep__print ep__print--a" data-reveal><img src="images/ep-1.jpg" alt="Asher Darling reading a record sleeve beside a lamp in a wood-panelled room" loading="lazy" width="1200" height="1200"><span class="ep__sticker" aria-hidden="true">Out now</span></figure>
+        <figure class="ep__print ep__print--b" data-reveal><img src="images/ep-2.jpg" alt="Asher Darling standing by a brick fireplace in a living room" loading="lazy" width="1200" height="1200"></figure>
+        <div class="ep__track ep__track--b" data-reveal>
+          <p class="ep__track-n">Track 02</p>
+          <div class="ep__embed" data-spotify="spotify:track:2GuFcZ4h3MGeRAEjgdXtcA"><a href="https://open.spotify.com/track/2GuFcZ4h3MGeRAEjgdXtcA" target="_blank" rel="noopener">Play Feigned Love on Spotify<span class="visually-hidden"> (opens in a new tab)</span></a></div>
+        </div>
+        <figure class="ep__print ep__print--c" data-reveal><img src="images/ep-3.jpg" alt="Asher Darling resting his head on a dining table" loading="lazy" width="1200" height="1200"></figure>
+        <figure class="ep__print ep__print--d" data-reveal><img src="images/ep-4.jpg" alt="Asher Darling standing in the snow outside a house" loading="lazy" width="1200" height="1200"></figure>
+        <div class="ep__track ep__track--c" data-reveal>
+          <p class="ep__track-n">Track 03</p>
+          <div class="ep__embed" data-spotify="spotify:track:1O7Efq4RRx7XvTDk8SPaeb"><a href="https://open.spotify.com/track/1O7Efq4RRx7XvTDk8SPaeb" target="_blank" rel="noopener">Play If I Can Catch It on Spotify<span class="visually-hidden"> (opens in a new tab)</span></a></div>
         </div>
       </div>
     </section>
