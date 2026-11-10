@@ -24,7 +24,7 @@ Hosted on Vercel from this repo's `main` branch (framework preset: **Other**, no
 
 Each is marked with a `TODO` comment in the page.
 
-- **Portrait:** opening section on `index.html`.
+- **Portrait:** done (`images/asher-darling-live.jpg`, photo by @meatnerd, credited on the photo). Swap for a dedicated headshot later if wanted.
 - **Listen:** Spotify embed in `listen.html`. The page is hidden from the nav until then (restore the commented-out `<li>` in every page's nav, including `404.html`).
 - **Pictures:** images and photographer credits in `pictures.html`, files in `images/`. Shows an Instagram line until then.
 - **Events:** real dates in `events.html`. It shows an Instagram line until there are dates.

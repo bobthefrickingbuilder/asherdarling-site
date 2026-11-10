@@ -17,6 +17,7 @@
 
   --gutter: clamp(1.5rem, 6vw, 5rem);
   --frame: clamp(1rem, 3vw, 2.5rem);
+  --line-strong: rgba(255, 255, 255, 0.28);
   --nav-h: 4.9rem;
   --kb-h: clamp(72px, 14svh, 170px);
   --max: 72rem;
@@ -154,7 +155,12 @@ main {
   padding: 1.25rem var(--gutter);
 }
 .site-nav--solid { position: relative; border-bottom: 1px solid var(--line); }
-.site-nav__home { font-family: var(--font-serif); color: var(--cream); text-decoration: none; font-size: 1.125rem; }
+.site-nav__home { display: inline-flex; align-items: center; gap: 0.75rem; font-family: var(--font-serif); color: var(--cream); text-decoration: none; font-size: 1.125rem; }
+.site-nav__logo { width: 2.5rem; height: 2.5rem; flex: none; display: block; }
+.site-nav__home:hover span { text-decoration: underline; text-underline-offset: 0.2em; }
+@media (max-width: 479px) {
+  .site-nav__home span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
 .site-nav__list { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
 .site-nav__list a {
   font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
@@ -295,6 +301,13 @@ body::after {
 .band { gap: var(--frame); padding: var(--frame); background: var(--panel); }
 .band__photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: 4px; }
 .band__photo.ph, .opening__photo.ph { display: grid; }
+figure.opening__photo { position: relative; overflow: hidden; background: var(--panel); }
+figure.opening__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; display: block; }
+.photo-credit {
+  position: absolute; right: 0.75rem; bottom: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 3px;
+  background: rgba(0, 0, 0, 0.6); color: #ffffff; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em;
+}
+.photo-credit a { color: inherit; }
 .band__photo.ph { background: var(--bg); }
 .band__text { display: grid; gap: 1.25rem; align-content: center; padding: clamp(1rem, 4vw, 3.5rem) clamp(0.5rem, 3vw, 3rem); }
 .band__kicker { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--leaf); }
