@@ -10,7 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="site.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,19 +20,25 @@
   <nav class="site-nav" aria-label="Main">
     <a class="site-nav__home" href="index.html">Asher Darling</a>
     <ul class="site-nav__list">
-      <!-- Listen and Photos are hidden from the nav until they have content. Restore:
-      <li><a href="listen.html">Listen</a></li>
-      <li><a href="photos.html">Photos</a></li> -->
+      <!-- Listen is hidden from the nav until it has content. Restore: <li><a href="listen.html">Listen</a></li> -->
       <li><a href="events.html">Events</a></li>
+      <li><a href="pictures.html">Pictures</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <header class="hero">
     <div class="hero__inner">
-      <p class="label">Ottawa · Pianist · Composer · <span class="nowrap">Singer-songwriter</span></p>
-      <h1 class="hero__name">Asher<br>Darling</h1>
-      <!-- TODO: headshot. Add an <img> here (e.g. images/asher-darling.jpg) with descriptive alt text. -->
+      <div class="hero__text">
+        <p class="label hero__kicker">Ottawa · Pianist · Composer · <span class="nowrap">Singer-songwriter</span></p>
+        <h1 class="hero__name"><span class="w" style="--i:0">Asher</span><br><span class="w" style="--i:1">Darling</span></h1>
+      </div>
+      <!-- TODO: headshot. Replace the placeholder with
+      <img class="hero__photo" src="images/asher-darling.jpg" alt="Asher Darling at the piano" width="1200" height="1500">
+      -->
+      <div class="placeholder placeholder--photo hero__photo" style="--ratio:4/5" role="img" aria-label="Portrait placeholder">
+        <span class="label">Portrait</span>
+      </div>
     </div>
 
     <svg class="keyboard" viewBox="0 0 560 150" preserveAspectRatio="none" role="img" aria-label="Illustration of a two-octave piano keyboard">
@@ -71,26 +79,34 @@
       <div class="section__body">
         <p class="lede">Asher Darling is a pianist, composer and singer-songwriter based in Ottawa.</p>
         <p>He is a pianist and composer with a classical background and a passion for contemporary styles. He holds a degree in performance and composition from the University of Ottawa, and after graduating added pop, rock and alternative to his playing.</p>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="glance-title">
-      <h2 class="label section__label" id="glance-title">At a glance</h2>
-      <div class="section__body">
         <dl class="glance">
-          <div><dt>Based in</dt><dd>Ottawa</dd></div>
           <div><dt>Plays</dt><dd>Piano and keyboards</dd></div>
           <div><dt>Writes</dt><dd>Compositions and songs</dd></div>
-          <div><dt>Training</dt><dd>Degree in performance and composition, University of Ottawa</dd></div>
+          <div><dt>Training</dt><dd>Performance and composition, University of Ottawa</dd></div>
           <div><dt>Styles</dt><dd>Classical, pop, rock, alternative</dd></div>
         </dl>
       </div>
     </section>
 
+    <!-- TODO: performance photo. Replace the placeholder with
+    <img class="feature__img" src="images/performance.jpg" alt="Describe the photo" loading="lazy" width="2400" height="1350">
+    -->
+    <figure class="feature" data-reveal>
+      <div class="placeholder placeholder--photo" style="--ratio:16/9" role="img" aria-label="Performance photo placeholder">
+        <span class="label">Performance</span>
+      </div>
+    </figure>
+
     <section class="section" aria-labelledby="performing-title">
       <h2 class="label section__label" id="performing-title">Performing</h2>
       <div class="section__body">
         <article class="card">
+          <!-- TODO: band photo. Replace the placeholder with
+          <img class="card__img" src="images/the-start.jpg" alt="The Start on stage" loading="lazy" width="1500" height="1000">
+          -->
+          <div class="placeholder placeholder--photo card__img" style="--ratio:3/2" role="img" aria-label="Band photo placeholder">
+            <span class="label">The Start, live</span>
+          </div>
           <p class="label card__label">Keyboards</p>
           <h3 class="card__title">The Start</h3>
           <p>A five-piece Ottawa cover band founded in 2009, playing five decades of British music, “80s and beyond”.</p>
@@ -103,6 +119,28 @@
           </ul>
           <a class="link-arrow" href="https://wearethestart.ca/" target="_blank" rel="noopener">wearethestart.ca<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
         </article>
+      </div>
+    </section>
+
+    <section class="section section--single" aria-labelledby="pictures-title">
+      <div class="strip-head">
+        <h2 class="label section__label" id="pictures-title">Pictures</h2>
+        <a class="link-arrow" href="pictures.html">All pictures<span aria-hidden="true"> →</span></a>
+      </div>
+      <!-- TODO: pictures. Replace each placeholder <li> with
+      <li><a href="pictures.html"><img src="images/thumb-1.jpg" alt="Describe the photo" loading="lazy" width="760" height="950"></a></li>
+      -->
+      <ul class="strip">
+        <li class="placeholder placeholder--photo" style="--ratio:4/5" data-reveal role="img" aria-label="Picture placeholder"><span class="label">Picture</span></li>
+        <li class="placeholder placeholder--photo" style="--ratio:4/5" data-reveal role="img" aria-label="Picture placeholder"><span class="label">Picture</span></li>
+        <li class="placeholder placeholder--photo" style="--ratio:4/5" data-reveal role="img" aria-label="Picture placeholder"><span class="label">Picture</span></li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="events-title">
+      <h2 class="label section__label" id="events-title">Events</h2>
+      <div class="section__body">
+        <p>Upcoming shows, solo and with The Start, are listed on the <a href="events.html">events page</a>.</p>
       </div>
     </section>
 
