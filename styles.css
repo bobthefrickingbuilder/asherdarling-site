@@ -1,15 +1,16 @@
 :root {
-  --bg: #17100b;
-  --panel: #241710;
-  --walnut: #5a3219;
-  --amber: #c07a24;
-  --cream: #ffffff;
-  --leaf: #7fa68a;
+  --bg: #111111;
+  --panel: #1c1c1c;
+  --walnut: #3a3a3a;
+  --amber: #ff5b2e;
+  --cream: #f4f4f0;
+  --leaf: #c9c9c2;
   --sky: #93b4d8;
-  --text: #ffffff;
-  --text-muted: #ffffff;
-  --key-black: #120c08;
-  --line: rgba(255, 255, 255, 0.16);
+  --text: #f4f4f0;
+  --text-muted: #f4f4f0;
+  --key-white: #f4f4f0;
+  --key-black: #0a0a0a;
+  --line: rgba(244, 244, 240, 0.16);
 
   --font-serif: "Young Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-sans: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -17,7 +18,7 @@
 
   --gutter: clamp(1.5rem, 6vw, 5rem);
   --frame: clamp(1rem, 3vw, 2.5rem);
-  --line-strong: rgba(255, 255, 255, 0.28);
+  --line-strong: rgba(244, 244, 240, 0.3);
   --nav-h: 4.9rem;
   --kb-h: clamp(72px, 14svh, 170px);
   --max: 72rem;
@@ -251,7 +252,7 @@ body::after {
 
 /* Keyboard */
 .keyboard { display: block; width: 100%; height: var(--kb-h); border-bottom: 1px solid var(--line); }
-.keys-white rect { fill: var(--cream); stroke: var(--bg); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.keys-white rect { fill: var(--key-white); stroke: var(--bg); stroke-width: 2; vector-effect: non-scaling-stroke; }
 .keys-black rect { fill: var(--key-black); }
 .keyboard .key--amber { fill: var(--amber); }
 @media (hover: hover) {
