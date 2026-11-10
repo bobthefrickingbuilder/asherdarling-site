@@ -1,4 +1,12 @@
 (function () {
+  // Landing fits the screen: CSS sizes it with the real nav height.
+  var nav = document.querySelector('.site-nav');
+  if (nav) {
+    var setNav = function () { document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); };
+    setNav();
+    window.addEventListener('resize', setNav);
+  }
+
   var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Scroll reveal (webassets 001): sections and [data-reveal] items fade up once as they enter.
