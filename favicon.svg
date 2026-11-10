@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#17100b"/>
+  <rect x="10" y="50" width="44" height="3" fill="#c07a24"/>
+  <text x="32" y="42" text-anchor="middle" font-family="'Young Serif', Georgia, 'Times New Roman', serif" font-size="28" fill="#d2c49b">AD</text>
+</svg>
