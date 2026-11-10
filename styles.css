@@ -34,7 +34,10 @@ html { -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  /* Background noise/distortion texture. On Home the landing (nav, opening, keyboard) stays solid; see .home rules. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g' x='0' y='0' width='1' height='1'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .2 -.06'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cfilter id='b' x='0' y='0' width='1' height='1'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0078125 .015625' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .22 -.07'/%3E%3C/filter%3E%3Crect width='640' height='640' filter='url(%23b)'/%3E%3C/svg%3E");
+  background-size: 220px 220px, 640px 640px;
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 1.0625rem;
@@ -215,6 +218,10 @@ body::after {
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 /* Home */
+.home .site-nav, .home .opening { background-color: var(--bg); }
+.home .site-nav { margin: 0; padding-left: var(--gutter); padding-right: var(--gutter); border-bottom: 0; }
+.home .site-nav::after { content: ""; position: absolute; left: var(--gutter); right: var(--gutter); bottom: 0; height: 1px; background: var(--line); }
+
 .home main { max-width: none; padding: 0; }
 .ph { display: grid; place-items: center; background: var(--panel); border: 1px dashed var(--walnut); }
 .ph span { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
