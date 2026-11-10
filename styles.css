@@ -138,9 +138,8 @@ main {
   justify-content: space-between;
   align-items: baseline;
   gap: 0.5rem 2rem;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 2.5rem var(--gutter) 3rem;
+  margin: 0 var(--gutter);
+  padding: 2.5rem 0 3rem;
   border-top: 1px solid var(--walnut);
 }
 .footer__name { font-family: var(--font-serif); color: var(--cream); font-size: 1.25rem; }
@@ -152,8 +151,8 @@ main {
   position: absolute; top: 0; left: 0; right: 0; z-index: 5;
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
   gap: 0.5rem 1.5rem;
-  max-width: var(--max); margin: 0 auto;
-  padding: 1.25rem var(--gutter);
+  margin: 0 var(--gutter);
+  padding: 1.25rem 0;
 }
 .site-nav--solid { position: relative; border-bottom: 1px solid var(--line); }
 .site-nav__home { display: inline-flex; align-items: center; gap: 0.75rem; font-family: var(--font-serif); color: var(--cream); text-decoration: none; font-size: 1.125rem; }
