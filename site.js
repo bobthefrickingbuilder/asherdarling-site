@@ -158,4 +158,79 @@
       sx = null;
     });
   }
+
+  // Events calendar: built from the .gigs list, one month per month that has shows. The list stays as the accessible source.
+  var gigList = document.querySelector('.gigs');
+  if (gigList) {
+    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var t = new Date(), todayKey = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+    var byDay = {}, months = [];
+    gigList.querySelectorAll('.gig').forEach(function (li) {
+      var d = li.querySelector('time[datetime]'); if (!d) return;
+      var key = d.getAttribute('datetime').slice(0, 10), mk = key.slice(0, 7);
+      if (months.indexOf(mk) < 0) months.push(mk);
+      (byDay[key] = byDay[key] || []).push({
+        li: li,
+        venue: (li.querySelector('.gig__venue') || {}).textContent || '',
+        band: (li.querySelector('.gig__meta') || {}).textContent || ''
+      });
+    });
+    var el = function (tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
+    if (months.length) {
+      months.sort();
+      var cal = el('div', 'cal'); cal.setAttribute('aria-hidden', 'true');
+      months.forEach(function (mk) {
+        var y = +mk.slice(0, 4), m = +mk.slice(5, 7) - 1, count = 0;
+        Object.keys(byDay).forEach(function (k) { if (k.slice(0, 7) === mk) count += byDay[k].length; });
+        var month = el('section', 'cal__month'), head = el('div', 'cal__head');
+        head.appendChild(el('p', 'cal__name', MONTHS[m]));
+        head.appendChild(el('span', 'cal__year', String(y)));
+        head.appendChild(el('span', 'cal__count', count + (count === 1 ? ' show' : ' shows')));
+        month.appendChild(head);
+        var dow = el('div', 'cal__dow');
+        ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(function (n) { dow.appendChild(el('span', '', n)); });
+        month.appendChild(dow);
+        var grid = el('div', 'cal__grid'), first = new Date(y, m, 1).getDay(), days = new Date(y, m + 1, 0).getDate();
+        for (var i = 0; i < first; i++) grid.appendChild(el('div', 'cal__day cal__day--pad'));
+        for (var dd = 1; dd <= days; dd++) {
+          var key = mk + '-' + String(dd).padStart(2, '0'), shows = byDay[key], cell = el('div', 'cal__day');
+          cell.appendChild(el('span', 'cal__n', String(dd).padStart(2, '0')));
+          var tags = el('div', 'cal__tags');
+          if (key === todayKey) { cell.classList.add('cal__day--today'); tags.appendChild(el('span', 'cal__tag cal__tag--today', 'Today')); }
+          if (shows) {
+            cell.classList.add('cal__day--show');
+            if (key < todayKey) {
+              cell.classList.add('cal__day--past'); tags.appendChild(el('span', 'cal__tag', 'Played'));
+              shows.forEach(function (s) {
+                if (s.li.classList.contains('gig--past')) return;
+                s.li.classList.add('gig--past');
+                s.li.querySelector('.gig__date').appendChild(el('span', 'gig__played', ' · Played'));
+              });
+            }
+            var list = el('div', 'cal__shows');
+            shows.forEach(function (s) {
+              var sh = el('div', 'cal__show');
+              sh.appendChild(el('span', 'cal__venue', s.venue));
+              sh.appendChild(el('span', 'cal__band', s.band));
+              list.appendChild(sh);
+            });
+            cell.appendChild(list);
+            (function (target) {
+              cell.addEventListener('click', function () {
+                if (getComputedStyle(gigList).position === 'absolute') return;
+                target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+                target.classList.remove('flash'); void target.offsetWidth; target.classList.add('flash');
+              });
+            })(shows[0].li);
+          }
+          if (tags.childNodes.length) cell.appendChild(tags);
+          grid.appendChild(cell);
+        }
+        month.appendChild(grid);
+        cal.appendChild(month);
+      });
+      gigList.parentNode.insertBefore(cal, gigList);
+      gigList.parentNode.classList.add('has-cal', 'gigs-wrap');
+    }
+  }
 })();
